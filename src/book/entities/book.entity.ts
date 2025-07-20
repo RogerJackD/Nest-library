@@ -1,4 +1,6 @@
-import { Check, Column, Entity, Index, PrimaryGeneratedColumn, Unique } from "typeorm";
+import { Version } from "@nestjs/common";
+import { version } from "os";
+import { Check, Column, Entity, Index, PrimaryGeneratedColumn, Unique, VersionColumn } from "typeorm";
 
 
 @Index(['title', 'author'])
@@ -17,6 +19,9 @@ export class Book {
     })
     title: string;
 
+    @Column()
+    description: string;
+
     @Check(`char_length(author) > 0`)
     @Column('text',{
     })
@@ -24,4 +29,8 @@ export class Book {
 
     @Column('int')
     page: number;
+
+    @VersionColumn()
+    version : number;
+    
 }
