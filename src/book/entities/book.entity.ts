@@ -1,5 +1,3 @@
-import { Version } from "@nestjs/common";
-import { version } from "os";
 import { Check, Column, Entity, Index, PrimaryGeneratedColumn, Unique, VersionColumn } from "typeorm";
 
 
